@@ -1,6 +1,6 @@
 const Customer = require('../models').Customer
 const Order = require('../models').Order
-const hashPassword = require('../helpers/hashPassword')
+// const hashPassword = require('../helpers/hashPassword')
 
 
 class CustomerController {
