@@ -42,13 +42,6 @@
         "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
     },
     {
-        "name": "Fried Lettuce",
-        "price": 3000,
-        "description": "menu wajib cuy",
-        "type": "food",
-        "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-    },
-    {
         "name": "smoothies",
         "price": 3000,
         "description": "menu wajib cuy",
@@ -70,9 +63,9 @@
         "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
     },
     {
-        "name": "Fried Lettuce",
-        "price": 3000,
-        "description": "menu wajib cuy",
+        "name": "Paket A",
+        "price": 22000,
+        "description": "Ayam+Nasi+Air Mineral",
         "type": "food",
         "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
     }
