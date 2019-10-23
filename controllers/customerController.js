@@ -10,7 +10,6 @@ class CustomerController {
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            address: req.body.address,
             balance: req.body.balance
         })
             .then(value => {
