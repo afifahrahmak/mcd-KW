@@ -15,8 +15,10 @@ class CustomerController {
             .then(value => {
                 if (value[1]) {
                     res.send('success')
+                    res.redirect('/')
                 } else {
-                    res.send(error)
+                    res.send(err.message)
+                    res.render('signUpForm', { err: err.message.split(':')[1] })
                 }
             })
             .catch(err => {
@@ -50,7 +52,6 @@ class CustomerController {
             res.redirect('/')
         })
     }
-
 
 
 }

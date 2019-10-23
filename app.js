@@ -17,18 +17,7 @@ app.use(session({
 
 app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
-app.use('/', routes)
 app.use(express.static(__dirname + '/public'));
-
-const loginMiddleware = (req, res, next) => {
-    if (req.session.user) {
-        next()
-    }
-    else {
-        res.redirect('/login')
-    }
-}
-app.use(loginMiddleware)
 
 app.use('/', customerRouter)
 app.use('/menu', menuRouter);
