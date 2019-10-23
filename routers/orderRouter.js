@@ -11,9 +11,6 @@ const loginMiddleware = (req, res, next) => {
 }
 router.use(loginMiddleware)
 
-router.get('/', OrderController.allMenuPage);
-router.post('/', OrderController.addMenu);
-
 router.get('/receipt/edit', OrderController.editPage);
 router.post('/receipt/edit', OrderController.edit);
 router.get('/receipt/delete', OrderController.delete);
