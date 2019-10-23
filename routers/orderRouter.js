@@ -2,14 +2,13 @@ const router = require('express').Router();
 const OrderController = require('../controllers/orderController');
 
 const loginMiddleware = (req, res, next) => {
-    if (req.session.customer) {
+    if (req.session) {
         next()
     }
     else {
-        res.redirect('/login')
+        res.redirect('/')
     }
 }
-
 router.use(loginMiddleware)
 
 router.get('/', OrderController.allMenuPage);
