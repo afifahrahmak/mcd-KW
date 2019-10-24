@@ -27,50 +27,54 @@
 
 <body>
     <header>
-        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-            <div class="header-login">
-                <span class="login">
-                    <a href="/login" style="font-family: Amatic SC;">
-                        Login
-                    </a>
-                </span>
-            </div>
+        <nav class="navbar navbar-expand-lg d-flex flex-row" style="height: 10%;">
             <div class="site-branding">
                 <div class="logo">
-                    <img src="image/logo.png" alt="" style="z-index: 1000; width: 350px; margin: 0 150px;">
-                    <h2 class="title">your daily food coding partner</h2>
+                    <img src="image/logo.png" alt="" style="z-index: 1000; width: 350px;">
                 </div>
             </div>
-            <div class="header-cart">
-                <p>test</p>
-            </div>
-        </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <nav style="justify-content: space-around;" class="navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mx-auto">
-                    <li class="nav-item" ">
-                            <a class=" nav-link" href="#" href=" #">Paket</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class=" nav-link" href="#" href=" #"> <strong>PACKAGE </strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="#"> <strong> Pasta </strong></a>
+                        <a class=" nav-link" href="#"> <strong> PASTA </strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="#"> <strong> Chicken </strong></a>
+                        <a class=" nav-link" href="#"> <strong> CHICKEN </strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="#"><strong> Rice </strong></a>
+                        <a class=" nav-link" href="#"><strong> RICE </strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="#"> <strong>Burger </strong></a>
+                        <a class=" nav-link" href="#"> <strong> BURGER </strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class=" nav-link" href="#"><strong>More... </strong></a>
+                        <a class=" nav-link" href="#"><strong> MORE... </strong></a>
                     </li>
                 </ul>
+                <div style="padding: 10px; display: flex; flex-direction: row;">
+                    <% if(!user) { %>
+                        <a style="margin: 10px;" href="/login">
+                            Login
+                        </a>
+                    <% }else{ %>
+                        <a style="margin: 10px;" href="/logout">
+                            Logout
+                        </a>
+                    <% } %>
+                    <% if(user) { %>
+                        <a href="/order/<%= user.id %>" style="margin: 10px;">Cart</a>
+                    <% } %>
+                </div>
             </div>
         </nav>
-
     </header>
 
     <!-- INDEX OR HOME -->
@@ -94,14 +98,14 @@
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="image/1.jpg" class="d-block w-100" alt="image/1.jpg">
+                                <img src="image/1.jpg" class="d-block w-100" alt="image/2.jpg">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Second slide label</h5>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img src="image/1.jpg" class="d-block w-100" alt="image/1.jpg">
+                                <img src="image/1.jpg" class="d-block w-100" alt="image/3.jpg">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Third slide label</h5>
                                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -126,18 +130,17 @@
     </body>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="quote">
-            <h1 class="title">Fancy McD-KW Indonesia</h1>
-            <p class="slogan">"your daily food coding partner"</p>
-        </div>
+    <footer style="height: 100%;">
+        <div style="height: 10vh;">
+            <div class="quote">
+                <h1 class="title" style="font-size: 20px; font-weight: bolder;">Fancy McD-KW Indonesia</h1>
+                <p class="slogan">"your daily food coding partner"</p>
+            </div>
 
-        <ul class="socialmedia">
-            <li class="socmed"><a href="https://www.instagram.com/afifahrahmak" target="_blank"><img src="image/ig.png"
-                        alt=""></a></li>
-            <li class="socmed"><a href="https://www.github.com/afifahrahmak" target="_blank"><img src="image/fb.png"
-                        alt=""></a></li>
-        </ul>
+            <ul class="socialmedia">
+                <li class="socmed"><img src="/image/ig.png" alt=""></li>
+            </ul>
+        </div>
     </footer>
     <section class="copyright">
         <p>Aimed for educational project. <strong>&copycopyright by Afifahrahmak & ImmanuelN.Jodi </strong></p>

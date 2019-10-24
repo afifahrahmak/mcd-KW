@@ -11,6 +11,7 @@
   text-align: center;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  font-family: "Questrial";
   /* border: 1px solid red; */
 }
 
@@ -58,26 +59,6 @@ font-weight: bolder;}
 .logo h2{ font-size: 15px; padding:20 auto; font-family: 'Codystar', cursive;}
 .logo p{ font-size: 18px; font-family: 'Covered By Your Grace', cursive;}
 
-
-nav {
-  width: 100%;
-  height: 6vh;
-  background-color: rgba(255, 166, 0, 0.726);
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-}
-
-.nav-link {
-  font-family: "Amatic SC";
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  
-}
-
-nav li a:hover {
-}
 
 .tile{
   padding: 300px 0px;
@@ -304,137 +285,11 @@ nav li a:hover {
 }
 
 
-/*----- SLIDESHOW -----*/
-
-.slideshow-container {
-  object-fit: fill;
-  max-width: 10000px;
-  height: auto;
-  display: block;
-  position: relative;
-  margin: 25px 0px 100px 0px;
-  padding: 0px 0px 50px 0px;
-}
-
-.mySlides {
-  object-fit: fill;
-  display: none;
-  height: 400px;
-}
-
-.mySlides img{
-  width: auto;
-  height: 400px;
-}
-/* .mySlides img:hover{
-  filter: grayscale(100%);
-} */
-
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 10px;
-  color: rgb(253, 173, 0);
-  font-weight: bold;
-  font-size: 20px;
-  transition: .6s ease;
-  border-radius: 0 3px 3px 0
-}
-
-.next {
-  right: -50px;
-  border-radius: 3px 3px 3px 3px
-}
-
-.prev {
-  left: -50px;
-  border-radius: 3px 3px 3px 3px
-}
-
-.prev:hover,
-.next:hover {
-  color: rgba(17, 17, 16, 0.755);
-  background-color: rgba(255, 211, 193, 0.748)
-}
-
-.text {
-  color:  rgb(255, 211, 193);
-  font-size: 15px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color:  rgba(17, 17, 16, 0.755);
-  font-family: 'Covered By Your Grace', cursive;
-}
-
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0
-}
-
-.dot {
-  cursor: pointer;
-  height: 10px;
-  width: 10px;
-  margin: 0 3px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color .6s ease
-}
-
-.active,
-.dot:hover {
-  background-color: #717171
-}
-
-
-
-/*GRIDDING PHOTO THUMBNAIL*/
-
-.photo{
-  float: left;
-  width: 32.8%;
-  height: 300px;
-}
-
-.gridphoto img{
-  filter: grayscale(100%);
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  transition: transform .2s;
-}
-
-.gridphoto img:hover{
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); 
-  transform: scale(1.5); 
-  filter: grayscale(0%);
-  z-index: 100;
-}
-.gridphoto:after {
-  content: "";
-  display: table;
-  clear: both;
-  margin-bottom: 50px;
-}
-
 /* FOOTER */
 footer{
   width: 100%;
-  padding: 20px 0px;
-  background-color:  rgba(255, 211, 193, 0.748); 
+  height: 10%;
+  background-color:  rgba(236, 146, 0, 0.876); 
   display: flex;
   justify-content: center;
   align-content: center;
@@ -462,7 +317,7 @@ footer p{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border:  5px auto;
+
 }
 
 .socialmedia img{
@@ -470,144 +325,14 @@ footer p{
   padding: 5px;
   display: inline-block;  
 }
+
 .copyright{
+  height: 10%;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  padding: 5px 0px;
   font-size: 10px;
   text-align: center;
   font-style: italic;
-}
-/* label color */
-.input-field label {
-    color: rgb(217, 152, 0);
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: rgb(0, 0, 0) !important;
-  }
-  .input-field input[type=email]:focus + label {
-    color: #000 !important;
-  }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid rgb(217, 152, 0)  !important;
-    box-shadow: 0 1px 0 rgb(217, 152, 0) !important;
-  }
-  .input-field input[type=email]:focus {
-    border-bottom: 1px solid rgb(217, 152, 0)  !important;
-    box-shadow: 0 1px 0 rgb(217, 152, 0) !important;
-  }
-   /* label color */
-   .helper-text {
-    color: red !important;
-    background-color: white !important;
-  }
-
-
-button {
-  margin-bottom: 15%;
-  font-size: 10px;
-  border: 1px solid #000000;
-  padding: 5px;
-  color: gold;
-  background-color: #000000
-}
-
-.container-form form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.container-form input {
-  text-align: center;
-  border: 1px solid #000000;
-  width: 300px;
-  height: 30px;
-  margin-bottom: 15px;
-  font-family: 'Covered By Your Grace', cursive;
-  color: black;
-  background-color: rgba(221, 151, 0, 0.945);
-}
-
-.container-form label {
-  font-family: 'Montserrat', sans-serif;
-  height: 20px;
-  font-weight: bold;
-  font-size: 11px;
-}
-
-.container-form textarea {
-  width: 300px;
-  height: 100px;
-  margin-bottom: 15px;
-  font-family: 'Covered By Your Grace', cursive;
-  background-color: rgba(255, 255, 255, 0.646);
-  color: black;
-}
-
-.container-form #submit {
-  font-family: 'Covered By Your Grace', cursive;
-  font-size: 12px;
-  width: 80px;
-  height: 20px;
-  float: right;
-  font-family: title;
-  color: yellow;
-  background-color: black;
-}
-
-.container-form #submit:hover {
-  width: 80px;
-  height: 20px;
-  background-color: rgba(253, 173, 0, 0.571);
-  color: rgb(0, 0, 0);
-}
-
-.list button {
-  margin-top: 50%;
-  margin-bottom: 15%;
-  font-size: 10px;
-  border: 1px solid #000000;
-  padding: 5px;
-  color: gold;
-  background-color: #000000
-}
-
-.home button {
-  margin-bottom: 15%;
-  font-size: 10px;
-  border: 1px solid #000000;
-  padding: 5px;
-  color: black;
-  background-color: #d49434
-}
-
-table {
-    margin-top: 10px;
-    font-family: 'Montserrat', sans-serif;
-    border-collapse: collapse;
-    width: 70%;
-    font-size: 12px
-}
-th {
-    background-color: goldenrod;
-}
-
-td, th {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid #000000;
-    text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #ffffffd2;
 }

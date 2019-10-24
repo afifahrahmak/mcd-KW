@@ -22,7 +22,7 @@ class CustomerController {
             "Setiabudi",
             "Tebet"
         ]
-        res.render('register',{city,kecamatan})
+        res.render('register',{city,kecamatan, err: null})
     }
 
     static register(req, res) {
@@ -38,8 +38,8 @@ class CustomerController {
                     res.send('success')
                     res.redirect('/')
                 } else {
-                    res.send(err.message)
-                    // res.render('register', { err: err.message.split(':')[1] })
+                    // res.send(err.message)
+                    res.render('register', { err: err.message.split(':')[1] })
                 }
                 req.session.user = {
                     id : value.id,
@@ -56,7 +56,7 @@ class CustomerController {
     }
 
     static loginForm(req,res){
-        res.render('login')
+        res.render('login', {err: null})
     }
     
     static login(req, res) {
@@ -73,7 +73,7 @@ class CustomerController {
                     if(success){
                         res.redirect('/')
                     }else{
-                            res.send('Wrong username/password')
+                        res.render('login', { err: 'Wrong username/password'})
                         }
                 }
             })

@@ -15,5 +15,14 @@ router.use(loginMiddleware)
 
 router.post('/:type/:id',MenuController.orderMenu)
 
+router.get('/:id',OrderController.allMenuPage)
+
+router.post('/:id',OrderController.checkout)
+
+router.get('/edit/:Id/:custId',OrderController.editForm)
+
+router.post('/edit/:Id/:custId',OrderController.editOrder)
+
+router.get('/delete/:id/:custId',OrderController.deleteOrder)
 
 module.exports = router;

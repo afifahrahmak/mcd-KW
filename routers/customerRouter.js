@@ -2,7 +2,8 @@ const router = require('express').Router()
 const CustomerController = require('../controllers/customerController')
 
 router.get('/', (req, res) => {
-    res.render('main')
+    let user = req.session.user
+    res.render('main',{user})
 })
 
 router.get('/login',CustomerController.loginForm)

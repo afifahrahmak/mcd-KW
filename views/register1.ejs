@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/register" method="POST">
+        <label for="username">
+            Username : <input type="text" name="username" required>
+        </label>
+        <br>
+        <br>
+        <label for="email">
+            Email : <input type="email" name="email" required>
+        </label>
+        <br>
+        <br>
+        <label for="password">
+            Password : <input type="password" name="password" required>
+        </label>
+        <br>
+        <br>
+        <label for="city">
+            City : 
+            <select name="city">
+                <% for(let i=0; i<city.length; i++) { %>
+                    <option value="<%= city[i] %>"><%= city[i] %></option>
+                <% } %>
+            </select>
+        </label>
+        <br>
+        <br>
+        <label for="kecamatan">
+            Sub-Districts : 
+            <select name="kecamatan">
+                <% for(let j=0; j<kecamatan.length; j++) { %>
+                    <option value="<%= kecamatan[j] %>"><%= kecamatan[j] %></option>
+                <% } %>
+            </select>
+        </label>
+        <br>
+        <br>
+        <label for="address">
+            Address : <input type="text" name="address">
+        </label>
+        <br>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

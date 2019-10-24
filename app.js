@@ -15,9 +15,13 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+app.get('/aelah',(req,res)=>{
+    res.render('test')
+})
+
 app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', customerRouter)
 app.use('/menu', menuRouter);

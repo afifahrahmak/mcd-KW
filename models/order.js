@@ -33,13 +33,20 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Order.init({
+    id : {
+      type : DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
     CustomerId: DataTypes.INTEGER,
     MenuId: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,
     totalPrice: DataTypes.INTEGER
   }, { sequelize });
   Order.associate = function (models) {
-    // associations can be defined here
+    Order.belongsTo(models.Customer)
+    Order.belongsTo(models.Menu)
   };
   return Order;
 };
