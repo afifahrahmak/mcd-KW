@@ -4,29 +4,17 @@ const CustomerController = require('../controllers/customerController')
 router.get('/', (req, res) => {
     res.render('main')
 })
-// const Login = (req, res, next) => {
-//     if (req.session.Customer) next()
-//     else res.redirect('/?err=' + 'please login first')
-// }
-router.get('/',(req,res)=>{
-    res.render('main')
-})
+
+router.get('/login',CustomerController.loginForm)
+
+router.post('/login',CustomerController.login)
 
 router.get('/register',CustomerController.registerForm)
 
 router.post('/register',CustomerController.register)
-// router.get('/signUp', (req, res) => {
-//     res.render('signUpForm')
-// })
-// router.post('/signUp', CustomerController.register)
 
-
-// router.get('/signIn', (req, res) => {
-//     res.render('signInForm')
-// })
-// router.post('/SignIn', CustomerController.login)
-
-
-// router.get('/logout', CustomerController.logout)
+router.get('/logout',(req,res)=>{
+    req.session.destroy(()=>{res.redirect('/')})
+})
 
 module.exports = router

@@ -28,14 +28,26 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: {
-        args: true,
-        msg: 'email already registered'
-      },
       validate: {
         isEmail: {
           args: true,
           msg: 'invalid Email'
+        },
+        isUnique(value,next){
+          return Customer.findOne({
+            where : {
+              email : value
+            }
+          })
+            .then(customer =>{
+              if(!customer){
+                next()
+              }else if(customer && customer.id === this.id){
+                next()
+              }else{
+                next(new Error('Email already exists'))
+              }
+            })
         }
       }
     },

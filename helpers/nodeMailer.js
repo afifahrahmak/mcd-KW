@@ -1,12 +1,22 @@
-// const sgMail = require('@sendgrid/mail');
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-//     const msg = {
-//     to: '',
-//     from: 'imanuelnjodi@gmail.com',
-//     subject: 'Sending with Twilio SendGrid is Fun',
-//     text: 'mencoba itu baik',
-//     html: `<strong>mencoba itu baik</strong>
-//             <h1> dan juga menyenangkan </h1>`,
-// };
-// sgMail.send(msg).then().catch(err => console.log(err.response.body.errors));
-// res.redirect('/')
+const nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'newljodi@gmail.com',
+        pass: 'screamaimfire123'
+    }
+   });
+
+   const mailOptions = {
+    from: 'newljodi@gmail.com', // sender address
+    to: 'imanuelnjodi@gmail.com', // list of receivers
+    subject: 'Subject of your email', // Subject line
+    html: '<p>Your html here</p>'// plain text body
+  };
+
+  transporter.sendMail(mailOptions, function (err, info) {
+    if(err)
+      console.log(err)
+    else
+      console.log(info);
+ });
