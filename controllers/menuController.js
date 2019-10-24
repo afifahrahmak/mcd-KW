@@ -4,7 +4,7 @@ const numberFormat = require('../helpers/numberFormat')
 class MenuController {
 
   static showMenu(req, res) {
-    let limit = 4
+    let limit = 6
     let page = req.query.page || 1
     let offset = (page - 1) * limit
     let type = req.params.type

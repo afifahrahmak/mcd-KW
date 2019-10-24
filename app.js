@@ -23,6 +23,10 @@ app.use('/', customerRouter)
 app.use('/menu', menuRouter);
 app.use('/order', orderRouter);
 
+app.get('/home', (req, res) => {
+    res.render('home')
+})
+
 app.listen(port, () => {
     console.log('mcdKW is running on port', port)
 })
