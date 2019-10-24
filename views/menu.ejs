@@ -79,6 +79,22 @@
       text-align: center;
       font-style: italic;
     }
+
+    p {
+      color: black;
+      text-decoration: none;
+      decoration: none;
+    }
+
+    .carddd {
+      justify-content: center;
+      align-content: center;
+    }
+
+    .card {
+      margin: 20px !important;
+
+    }
   </style>
 </head>
 
@@ -94,14 +110,15 @@
 
         <div class="row">
 
-          <div class="d-flex align-content-end flex-wrap" style="width: 100%">
+          <div class="d-flex flex-wrap carddd" style="width: 100%">
             <% for(let i=0; i<rows.length; i++) { %>
             <div class="card" style="width: 18rem;">
               <img src="<%= rows[i].urlImage %>" class="card-img-top"
                 style="height: 200px; object-fit: cover; object-fit: cover;" alt="...">
               <div class="card-body">
                 <p> <strong> <%= rows[i].name %> </strong></p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                <p class="card-text" style="color: black; text-decoration: none; decoration:none;">Some quick example
+                  text to build on the card title and make up the bulk of the
                   card's content.</p>
                 <p><%= numberFormat(rows[i].price) %></p>
                 <form action="/order/<%= rows[i].type %>/<%= rows[i].id %>" method="POST">
