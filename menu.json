@@ -2,71 +2,91 @@
     {
         "name": "Big Bro",
         "price": 25000,
-        "description": "burger",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        "description": "burger",
+        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Ayam Good",
         "price": 14000,
-        "description": "mood",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60"
+        "description": "mood",
+        "urlImage": "https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Pasta",
         "price": 20000,
-        "description": "bukan untuk gigi!",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+        "description": "bukan untuk gigi!",
+        "urlImage": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "SunRice",
         "price": 7000,
-        "description": "nasi jagung",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        "description": "nasi jagung",
+        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Salad",
         "price": 30000,
-        "description": "tidak pahit",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1556040220-704dadc2b747?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+        "description": "tidak pahit",
+        "urlImage": "https://images.unsplash.com/photo-1556040220-704dadc2b747?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Scrambled Eggs",
         "price": 10000,
-        "description": "rasa sapi",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        "description": "rasa sapi",
+        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "smoothies",
         "price": 3000,
-        "description": "menu wajib cuy",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+        "description": "menu wajib cuy",
+        "urlImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "salad 2",
         "price": 3000,
-        "description": "menu wajib cuy",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+        "description": "menu wajib cuy",
+        "urlImage": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Fried Lettuce",
         "price": 3000,
-        "description": "menu wajib cuy",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        "description": "menu wajib cuy",
+        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Paket A",
         "price": 22000,
-        "description": "Ayam+Nasi+Air Mineral",
         "type": "food",
-        "image": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+        "description": "Ayam+Nasi+Air Mineral",
+        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
     }
 ]

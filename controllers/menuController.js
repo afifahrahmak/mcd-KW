@@ -1,4 +1,5 @@
 const { Menu } = require('../models');
+const numberFormat = require('../helpers/numberFormat')
 
 class MenuController {
 
@@ -6,9 +7,10 @@ class MenuController {
     let limit = 4
     let page = req.query.page || 1
     let offset = (page - 1) * limit
+    let type = req.params.type
     Menu.findAndCountAll({
       where: {
-        type: req.params.type
+        type: type
       },
       order: [["id", "ASC"]],
       offset: offset,
@@ -16,11 +18,14 @@ class MenuController {
       // distinct : true
     })
       .then(menuData => {
-        let menus = menuData.rows
+        let rows = menuData.rows
+        // res.send(menuData)
+        // let menus = menuData.rows
         let test = Math.round(menuData.count / limit)
         let pageStart = Number(page)
         let lastPage = limit + pageStart
-        res.render('', { menus, pageStart, lastPage, test })
+        res.render('menu', { rows, pageStart, lastPage, test, type, numberFormat })
+        // res.render('',{menus,pageStart,lastPage,test})
       })
       .catch(err => {
         res.send(err)

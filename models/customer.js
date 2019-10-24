@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
+  const bcrypt = require('../helpers/bcrypt')
   class Customer extends Model {
 
     topUp(money) {
@@ -26,16 +27,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
+      unique: {
+        args: true,
+        msg: 'email already registered'
+      },
       validate: {
-        allowNull: false,
         isEmail: {
           args: true,
           msg: 'invalid Email'
-        },
-        unique: {
-          args: true,
-          msg: 'email already registered'
-        },
+        }
       }
     },
     password: DataTypes.STRING,
@@ -45,12 +46,11 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     hooks: {
       beforeCreate(Customer, options) {
-        const secret = String(Math.random() * 1000)
-        let pass = this.password
-        const password = hashPassword(pass, secret)
-
-        Customer.setDataValue('password', password)
-        Customer.setDataValue('salt', secret)
+        if(!Customer.dataValues.balance){
+          Customer.dataValues.balance = 0
+        }
+        let hashedPass = bcrypt(Customer.password,8)
+        Customer.password = hashedPass
       }
     }
   });

@@ -16,19 +16,19 @@ module.exports = (sequelize, DataTypes) => {
         })
     }
 
-    static checkout(id, username) {
-      return Order.findAll({ where: { CustomerId: id }, include: ClassModel.Menu })
-        .then(orders => {
-          orders.map(order => {
-
-          })
-          // let receipt = {
-          //   CustomerName: username,
-          //   orders: [],
-          //   totalPayment: 
-          // }
-        })
-    }
+    // static checkout(id, username) {
+    //   return Order.findAll({ where: { CustomerId: id }, include: ClassModel.Menu })
+    //     .then(orders => {
+    //       orders.map(order => {
+            
+    //       })
+    //       // let receipt = {
+    //       //   CustomerName: username,
+    //       //   orders: [],
+    //       //   totalPayment: 
+    //       // }
+    //     })
+    // }
 
   }
 
