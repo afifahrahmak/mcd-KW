@@ -33,6 +33,16 @@ class MenuController {
       })
   }
 
+  static buyMenu(req,res){
+    let type = req.params.type
+    let id = req.params.id
+    Menu.findByPk(id)
+      .then(menu =>{
+        // res.send(menu)
+        res.render('buy',{menu,type,id})
+      })
+  }
+
   static orderMenu(req, res) {
     let menuId = req.params.id
     let customerId = req.session.user.id
@@ -43,6 +53,7 @@ class MenuController {
       }
     })
       .then(menu => {
+        console.log(menu)
         let totalPrice = qty * menu.price
         return Order.create({
           CustomerId: customerId,

@@ -88,29 +88,9 @@
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p><%= numberFormat(rows[i].price) %></p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Order
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Quantity</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form action="/order/<%= rows[i].type %>/<%= rows[i].id %>" method="POST">
-                                    <div class="modal-body">
-                                        <input type="number" name="quantity" min="1" step="1" required>
-                                        <button type="submit">Order Now</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="/order/<%= rows[i].type %>/<%= rows[i].id %>">
+                        <button type="submit">Order</button>
+                    </a>
                 </div>
             </div>
         <% } %>

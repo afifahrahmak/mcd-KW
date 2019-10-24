@@ -5,7 +5,6 @@ const Mailer = require('../helpers/nodeMailer')
 class OrderController {
 
   static allMenuPage(req, res) {
-    let priceTotal = 0
     Order.findAll({
       where : {
         CustomerId : req.params.id
@@ -14,10 +13,7 @@ class OrderController {
     })
       .then(orders =>{
         if(orders.length){
-          orders.forEach(order =>{
-            priceTotal += order.totalPrice
-          })
-          res.render('checkout',{orders,priceTotal,numberFormat})
+          res.render('checkout',{orders,numberFormat})
         }else{
           res.redirect('/')
         }
@@ -29,21 +25,21 @@ class OrderController {
 
   static checkout(req,res){
     let priceTotal = 0
-    let id = req.params.id
+    let Id = req.params.id
     Order.findAll({
       where : {
-        CustomerId : id
+        CustomerId : Id
       },
-      include : [Menu,Customer]
+      include : [Customer]
     })
       .then(orders =>{
         orders.forEach(order =>{
           priceTotal += order.totalPrice
         })
-        Mailer(priceTotal)
+        Mailer(priceTotal,'imanuelnjodi@gmail.com',orders[0].Customer.name)
         return Order.destroy({
           where : {
-            CustomerId : id
+            CustomerId : Id
           }
         })
       })
@@ -67,11 +63,12 @@ class OrderController {
 
   static editOrder(req,res){
     Order.update({
-      quantity : req.body.quantity
+      quantity : Number(req.body.quantity)
     },{
       where : {
         id : req.params.Id
-      }
+      },
+      individualHooks : true
     })
       .then(()=>{
         res.redirect(`/order/${req.params.custId}`)

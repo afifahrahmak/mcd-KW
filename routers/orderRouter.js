@@ -13,6 +13,8 @@ const loginMiddleware = (req, res, next) => {
 }
 router.use(loginMiddleware)
 
+router.get('/:type/:id',MenuController.buyMenu)
+
 router.post('/:type/:id',MenuController.orderMenu)
 
 router.get('/:id',OrderController.allMenuPage)

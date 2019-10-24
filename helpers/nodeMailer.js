@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const { Menu, Order, Customer } = require('../models');
 const numberFormat = require('../helpers/numberFormat');
-function mailer(value){
+function mailer(value,receivers,user){
   var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -11,7 +11,7 @@ function mailer(value){
   });
   const mailOptions = {
     from: 'newljodi@gmail.com', // sender address
-    to: 'imanuelnjodi@gmail.com', // list of receivers
+    to: receivers, // list of receivers
     subject: 'Invoice', // Subject line
     html: `
     <!DOCTYPE html>
@@ -195,7 +195,7 @@ function mailer(value){
                                           </div>
                                           Hi 
                                           <span id="first_name">
-                                            Dia
+                                            ${user}
                                           </span>!
                                           <br>
                                           <br>
@@ -304,7 +304,7 @@ function mailer(value){
   };
   transporter.sendMail(mailOptions, function (err, info) {
     if(err)
-      console.log(err)
+      throw err
     else
       console.log(info);
   });

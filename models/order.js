@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
 
   const ClassModel = sequelize.models
   const Model = sequelize.Sequelize.Model
+  const Menu = sequelize.models.Menu
 
   class Order extends Model {
 
@@ -43,7 +44,18 @@ module.exports = (sequelize, DataTypes) => {
     MenuId: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,
     totalPrice: DataTypes.INTEGER
-  }, { sequelize });
+  }, { 
+    hooks : {
+      afterUpdate: (order,options) => {
+        Menu.findByPk(order.MenuId)
+          .then(menu =>{
+            let newTotal = menu.price * order.quantity
+            order.totalPrice = newTotal
+          })
+      }
+    },
+    sequelize
+   });
   Order.associate = function (models) {
     Order.belongsTo(models.Customer)
     Order.belongsTo(models.Menu)
