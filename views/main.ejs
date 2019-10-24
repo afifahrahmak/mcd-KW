@@ -21,8 +21,11 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="CSS/style.css">
-
+    <!--font awes-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Fancy McD-Kw Indonesia </title>
+    <!--css shop-->
+    <link rel="stylesheet" href="CSS/shop.css">
 </head>
 
 <body>
@@ -39,11 +42,12 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
+                <ul class="navbar-nav mx-auto" style="color: darkorange;">
                     <li class="nav-item">
-                        <a class=" nav-link" href="#" href=" #"> <strong>PACKAGE </strong></a>
+                        <a class=" nav-link" href="#" href=" #"> <strong> PACKAGE </strong></a>
                     </li>
                     <li class="nav-item">
+                        <i class="fas fa-pizza-slice"></i>
                         <a class=" nav-link" href="#"> <strong> PASTA </strong></a>
                     </li>
                     <li class="nav-item">
@@ -53,6 +57,7 @@
                         <a class=" nav-link" href="#"><strong> RICE </strong></a>
                     </li>
                     <li class="nav-item">
+                        <i class="fas fa-hamburger"></i>
                         <a class=" nav-link" href="#"> <strong> BURGER </strong></a>
                     </li>
                     <li class="nav-item">
@@ -60,6 +65,7 @@
                     </li>
                 </ul>
                 <div style="padding: 10px; display: flex; flex-direction: row;">
+<<<<<<< HEAD
                     <% if(!user) { %>
                         <a style="margin: 10px;" href="/login">
                             Login
@@ -72,6 +78,12 @@
                     <% if(user) { %>
                         <a href="/order/<%= user.id %>" style="margin: 10px;">Cart</a>
                     <% } %>
+=======
+                    <a style="margin: 10px;" href="/login">
+                        Login
+                    </a>
+                    <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i>
+>>>>>>> fe845eb772583decce88faa57ac13637238f5fb7
                 </div>
             </div>
         </nav>
@@ -127,14 +139,18 @@
             </div>
         </section>
 
+
     </body>
 
     <!-- FOOTER -->
     <footer style="height: 100%;">
-        <div style="height: 10vh;">
+        <div style="height: 20vh;">
             <div class="quote">
-                <h1 class="title" style="font-size: 20px; font-weight: bolder;">Fancy McD-KW Indonesia</h1>
+                <h1 class="title" style="font-size: 20px; font-weight: bolder; top: 10px;">Fancy McD-KW Indonesia</h1>
                 <p class="slogan">"your daily food coding partner"</p>
+                <br>
+                <br>
+                <p class="slogan">"Jalan Sultan Iskandar Muda No.7, Kebayoran Lama, Kota Jakarta Selatan"</p>
             </div>
 
             <ul class="socialmedia">

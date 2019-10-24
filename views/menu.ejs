@@ -2,24 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <title>Document</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Amatic+SC|Questrial|Sacramento&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/style.css">
+  <!--font awes-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Fancy McD-Kw Indonesia </title>
+  <!--css shop-->
+  <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    /* FOOTER */
+    footer {
+      width: 100%;
+      height: 10%;
+      background-color: rgba(236, 146, 0, 0.876);
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    footer p {
+      font-family: 'Covered By Your Grace', cursive;
+      font-size: 15px
+    }
+
+    .quote {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .socialmedia {
+      padding-top: 15px;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      border: 5px auto;
+    }
+
+    .socialmedia img {
+      width: 30px;
+      padding: 5px;
+      display: inline-block;
+    }
+
+    .copyright {
+      height: 10%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 10px;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="d-flex align-content-end flex-wrap">
         <% for(let i=0; i<rows.length; i++) { %>
             <div class="card" style="width: 18rem;">
@@ -52,25 +116,72 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <% } %>
-    </div>
+=======
+  <%- include partials/header.ejs %>
+  <!-- Page Content -->
+  <div class="container">
 
-    <% if(pageStart < test && pageStart > 1) { %>
-    <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
-        <<</a> <% } %> <% if(pageStart < test) { %> <% for(let i=pageStart; i<test+1; i++) { %> <a
-            href="/menu/<%= type %>?page=<%= i %>"><%= i %>
-    </a>
-    <% } %>
-    <% }else if(pageStart === test) { %>
-    <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
-        <<</a> <a href="/menu/<%= type %>?page=<%= pageStart %>"><%= pageStart %>
-    </a>
-    <% } %>
-    <% if(pageStart < test) { %>
-    <a href="/menu/<%= type %>?page=<%=pageStart + 1 %>">>></a>
-    <% } %>
+    <div class="row">
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-12">
+
+        <div class="row">
+
+          <div class="d-flex align-content-end flex-wrap" style="width: 100%">
+            <% for(let i=0; i<rows.length; i++) { %>
+            <div class="card" style="width: 18rem;">
+              <img src="<%= rows[i].urlImage %>" class="card-img-top"
+                style="height: 200px; object-fit: cover; object-fit: cover;" alt="...">
+              <div class="card-body">
+                <p> <strong> <%= rows[i].name %> </strong></p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p><%= numberFormat(rows[i].price) %></p>
+                <form action="/order/<%= rows[i].type %>/<%= rows[i].id %>" method="POST">
+                  <a href="/order" class="btn btn-primary"
+                    style="background-color: rgb(255, 189, 22); border: none; color: black;">Order Now</a>
+                </form>
+              </div>
+>>>>>>> fe845eb772583decce88faa57ac13637238f5fb7
+            </div>
+            <% } %>
+          </div>
+
+          <% if(pageStart < test && pageStart > 1) { %>
+          <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
+            <<</a> <% } %> <% if(pageStart < test) { %> <% for(let i=pageStart; i<test+1; i++) { %> <a
+              href="/menu/<%= type %>?page=<%= i %>"><%= i %>
+          </a>
+          <% } %>
+          <% }else if(pageStart === test) { %>
+          <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
+            <<</a> <a href="/menu/<%= type %>?page=<%= pageStart %>"><%= pageStart %>
+          </a>
+          <% } %>
+          <% if(pageStart < test) { %>
+          <a href="/menu/<%= type %>?page=<%=pageStart + 1 %>">>></a>
+          <% } %>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <%- include partials/footer.ejs %>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
