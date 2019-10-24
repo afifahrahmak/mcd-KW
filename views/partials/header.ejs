@@ -18,31 +18,36 @@
                 </li>
                 <li class="nav-item">
                     <i class="fas fa-pizza-slice"></i>
-                    <a class=" nav-link" href="#" style="color: black; text-decoration: none; decoration:none;">
+                    <a class=" nav-link" href="/menu" style="color: black; text-decoration: none; decoration:none;">
                         <strong> PASTA </strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class=" nav-link" href="#" style="color: black; text-decoration: none; decoration:none;">
+                    <a class=" nav-link" href="/menu/healthy"
+                        style="color: black; text-decoration: none; decoration:none;">
                         <strong> CHICKEN </strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class=" nav-link" href="#" style="color: black; text-decoration: none; decoration:none;"><strong>
+                    <a class=" nav-link" href="/menu/food"
+                        style="color: black; text-decoration: none; decoration:none;"><strong>
                             RICE </strong></a>
                 </li>
                 <li class="nav-item">
                     <i class="fas fa-hamburger"></i>
-                    <a class=" nav-link" href="#" style="color: black; text-decoration: none; decoration:none;">
+                    <a class=" nav-link" href="/menu/food"
+                        style="color: black; text-decoration: none; decoration:none;">
                         <strong> BURGER </strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class=" nav-link" href="#" style="color: black; text-decoration: none; decoration:none;"><strong>
+                    <a class=" nav-link" href="/menu/food"
+                        style="color: black; text-decoration: none; decoration:none;"><strong>
                             MORE... </strong></a>
                 </li>
             </ul>
             <div style="padding: 10px; display: flex; flex-direction: row;">
-                <a style="color: black; text-decoration: none; decoration:none; href="/login"> Login </a> <li><a
-                        href="#" id="cart"><i class="fa fa-shopping-cart"></i>
-            </div>
-        </div>
-    </nav>
-    </header>
+                <% if(user)  {%>
+                <a style="color: black; text-decoration: none; decoration:none;"" href="/logout"> logout </a> <a
+                    href="/order/<%= user.id %>" style="margin: 10px;">Cart</a>
+                <% } else  { %>
+                <a style="color: black; text-decoration: none; decoration:none;"" href="/login"> Login </a> <a
+                    style="color: black; text-decoration: none; decoration:none;"" href="/register"> Register </a>
+                    <% } %> </div> </div> </nav> </header>
