@@ -2,6 +2,7 @@ const Customer = require('../models').Customer
 const Order = require('../models').Order
 const bcrypt = require('bcrypt')
 const session = require('express-session')
+const numberFormat = require('../helpers/numberFormat')
 
 
 class CustomerController {
@@ -35,10 +36,8 @@ class CustomerController {
         }})
             .then(value => {
                 if (value[1]) {
-                    res.send('success')
                     res.redirect('/')
                 } else {
-                    // res.send(err.message)
                     res.render('register', { err: err.message.split(':')[1] })
                 }
                 req.session.user = {
@@ -95,7 +94,35 @@ class CustomerController {
     }
 
     static topup(req, res) {
-        res.render('customers/')
+        let user = req.session.user
+        console.log(user)
+        Customer.findByPk(req.params.id)
+            .then(customer =>{
+                res.render('topup',{user,customer,numberFormat})
+            })
+            .catch(err =>{
+                res.send(err)
+            })
+    }
+
+    static updateBalance(req,res){
+        Customer.findByPk(req.params.id)
+            .then(customer =>{
+                let balance = customer.balance + Number(req.body.balance)
+                return Customer.update({
+                    balance : balance
+                },{
+                    where : {
+                        id : customer.id
+                    }
+                })
+            })
+            .then(()=>{
+                res.redirect('/')
+            })
+            .catch(err =>{
+                res.send(err)
+            })
     }
 
 

@@ -18,13 +18,14 @@ class MenuController {
       // distinct : true
     })
       .then(menuData => {
+        let user = req.session.user
         let rows = menuData.rows
         // res.send(menuData)
         // let menus = menuData.rows
         let test = Math.round(menuData.count / limit)
         let pageStart = Number(page)
         let lastPage = limit + pageStart
-        res.render('menu', { rows, pageStart, lastPage, test, type, numberFormat })
+        res.render('menu1', { rows, pageStart, lastPage, test, type, numberFormat, user })
         // res.render('',{menus,pageStart,lastPage,test})
       })
       .catch(err => {

@@ -6,6 +6,15 @@ router.get('/', (req, res) => {
     res.render('main',{user})
 })
 
+const loginMiddleware = (req, res, next) => {
+    if (req.session.user) {
+        next()
+    }
+    else {
+        res.redirect('/')
+    }
+}
+
 router.get('/login',CustomerController.loginForm)
 
 router.post('/login',CustomerController.login)
@@ -14,8 +23,12 @@ router.get('/register',CustomerController.registerForm)
 
 router.post('/register',CustomerController.register)
 
-router.get('/logout',(req,res)=>{
+router.get('/logout',loginMiddleware,(req,res)=>{
     req.session.destroy(()=>{res.redirect('/')})
 })
+
+router.get('/topUp/:id',loginMiddleware,CustomerController.topup)
+
+router.post('/topUp/:id',loginMiddleware,CustomerController.updateBalance)
 
 module.exports = router

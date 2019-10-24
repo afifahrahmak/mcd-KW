@@ -1,7 +1,6 @@
 const { Menu, Order, Customer } = require('../models');
-const nodeMailer = require('../helpers/nodeMailer');
-const numberFormat = require('../helpers/numberFormat')
-const hbs = require('express-handlebars')
+const numberFormat = require('../helpers/numberFormat');
+const Mailer = require('../helpers/nodeMailer')
 
 class OrderController {
 
@@ -41,22 +40,7 @@ class OrderController {
         orders.forEach(order =>{
           priceTotal += order.totalPrice
         })
-        console.log(orders)
-        const mailOptions = {
-          from: 'newljodi@gmail.com', // sender address
-          to: 'imanuelnjodi@gmail.com', // list of receivers
-          subject: 'Invoice', // Subject line
-          html: `<h1 style="font-style : italic;"> Halo, ${orders[0].Customer.username} </h1>
-                <p>${priceTotal}</p>
-                ${'\u{1F601}'}
-                `// plain text body
-        };
-        nodeMailer.sendMail(mailOptions, function (err, info) {
-          if(err)
-            console.log(err)
-          else
-            console.log(info);
-        });
+        Mailer(priceTotal)
         return Order.destroy({
           where : {
             CustomerId : id
