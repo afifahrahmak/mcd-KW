@@ -1,46 +1,28 @@
 const router = require('express').Router();
 const OrderController = require('../controllers/orderController');
+const CustomerController = require('../controllers/customerController')
+const MenuController = require('../controllers/menuController')
 
+const loginMiddleware = (req, res, next) => {
+    if (req.session.user) {
+        next()
+    }
+    else {
+        res.redirect('/')
+    }
+}
+router.use(loginMiddleware)
 
-// router.post('/:food/:id',OrderController.createOrder)
+router.post('/:type/:id',MenuController.orderMenu)
 
-// const loginMiddleware = (req, res, next) => {
-//     if (req.session) {
-//         next()
-//     }
-//     else {
-//         res.redirect('/')
-//     }
-// }
-// router.use(loginMiddleware)
+router.get('/:id',OrderController.allMenuPage)
 
-// router.get('/receipt/edit', OrderController.editPage);
-// router.post('/receipt/edit', OrderController.edit);
-// router.get('/receipt/delete', OrderController.delete);
+router.post('/:id',OrderController.checkout)
 
-// const loginMiddleware = (req, res, next) => {
-//     if (req.session.customer) {
-//         next()
-//     }
-//     else {
-//         res.redirect('/login')
-//     }
-// }
+router.get('/edit/:Id/:custId',OrderController.editForm)
 
-// router.use(loginMiddleware)
+router.post('/edit/:Id/:custId',OrderController.editOrder)
 
-
-// router.get('/receipt/edit', OrderController.editPage);
-// router.post('/receipt/edit', OrderController.edit);
-// router.get('/receipt/delete', OrderController.delete);
-
-// router.get('/receipt/:id', OrderController.receiptPage); // id = CustomerId
-
-// router.post('/checkout', OrderController.checkout);
-
-// router.get('/purchased', OrderController.purchased)
-
-
-
+router.get('/delete/:id/:custId',OrderController.deleteOrder)
 
 module.exports = router;

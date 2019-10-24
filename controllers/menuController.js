@@ -1,4 +1,4 @@
-const { Menu } = require('../models');
+const { Menu,Order } = require('../models');
 const numberFormat = require('../helpers/numberFormat')
 
 class MenuController {
@@ -34,11 +34,11 @@ class MenuController {
 
   static orderMenu(req, res) {
     let menuId = req.params.id
-    let customerId = req.session.id
+    let customerId = req.session.user.id
     let qty = req.body.quantity
     Menu.findOne({
       where: {
-        id: id
+        id: menuId
       }
     })
       .then(menu => {
@@ -50,8 +50,8 @@ class MenuController {
           totalPrice: totalPrice
         })
       })
-      .then(order => {
-        res.redirect(`/`)
+      .then(order =>{
+        res.redirect(`/menu/${req.params.type}`)
       })
       .catch(err => {
         res.send(err)

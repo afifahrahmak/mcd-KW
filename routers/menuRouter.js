@@ -1,12 +1,7 @@
-const routes = require('express').Router();
+const router = require('express').Router();
 const MenuController = require('../controllers/menuController');
 
 
-//HOME
-// routes.get('/', MenuController.allMenu)
-routes.get('/:type',MenuController.showMenu)
+router.get('/:type',MenuController.showMenu)
 
-
-
-
-module.exports = routes;
+module.exports = router;

@@ -65,10 +65,25 @@
                     </li>
                 </ul>
                 <div style="padding: 10px; display: flex; flex-direction: row;">
+<<<<<<< HEAD
+                    <% if(!user) { %>
+                        <a style="margin: 10px;" href="/login">
+                            Login
+                        </a>
+                    <% }else{ %>
+                        <a style="margin: 10px;" href="/logout">
+                            Logout
+                        </a>
+                    <% } %>
+                    <% if(user) { %>
+                        <a href="/order/<%= user.id %>" style="margin: 10px;">Cart</a>
+                    <% } %>
+=======
                     <a style="margin: 10px;" href="/login">
                         Login
                     </a>
                     <li><a href="#" id="cart"><i class="fa fa-shopping-cart"></i>
+>>>>>>> fe845eb772583decce88faa57ac13637238f5fb7
                 </div>
             </div>
         </nav>
