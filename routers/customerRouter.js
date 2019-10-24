@@ -5,7 +5,13 @@ const CustomerController = require('../controllers/customerController')
 //     if (req.session.Customer) next()
 //     else res.redirect('/?err=' + 'please login first')
 // }
+router.get('/',(req,res)=>{
+    res.render('main')
+})
 
+router.get('/register',CustomerController.registerForm)
+
+router.post('/register',CustomerController.register)
 // router.get('/signUp', (req, res) => {
 //     res.render('signUpForm')
 // })

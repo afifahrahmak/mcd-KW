@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const OrderController = require('../controllers/orderController');
 
+
+// router.post('/:food/:id',OrderController.createOrder)
+
 // const loginMiddleware = (req, res, next) => {
 //     if (req.session.customer) {
 //         next()
