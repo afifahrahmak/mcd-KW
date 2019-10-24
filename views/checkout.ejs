@@ -1,84 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <title>Checkout</title>
+	<title>Shopping Cart</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+	<link href=" https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="/CSS/shopping-cart.css">
+	<style>
+		footer {
+			width: 100%;
+			height: 10%;
+			background-color: rgba(236, 146, 0, 0.876);
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		footer p {
+			font-family: 'Covered By Your Grace', cursive;
+			font-size: 15px
+		}
+
+		.quote {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			font-size: 12px;
+			text-align: center;
+		}
+
+		.socialmedia {
+			padding-top: 15px;
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			border: 5px auto;
+		}
+
+		.socialmedia img {
+			width: 30px;
+			padding: 5px;
+			display: inline-block;
+		}
+
+		.copyright {
+			height: 10%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			font-size: 10px;
+			text-align: center;
+			font-style: italic;
+		}
+
+		p {
+			color: black;
+			text-decoration: none;
+		}
+
+		.carddd {
+			justify-content: center;
+			align-content: center;
+		}
+
+		.card {
+			margin: 20px !important;
+
+		}
+	</style>
 </head>
+
 <body>
-    <div class="home">
-        <a href="/">Back to Home</a>
-    </div>
-    <div class="nama">
-        <p>
-            Hello ,<%= orders[0].Customer.username %>
-        </p>
-    </div>
-    <hr>
-    <div class="container">
-        <table>
-            <tr>
-                    <th>
-                        Menu
-                    </th>
-                    <th>
-                        Price
-                    </th>
-                    <th>
-                        Quantity
-                    </th>
-                    <th>
-                        Actions
-                    </th>
-                </tr>
-                <% for(let i=0; i<orders.length; i++) { %>
-                    <tr>
-                        <td>
-                            <%= orders[i].Menu.name %>
-                        </td>
-                        <td>
-                            <%= numberFormat(orders[i].Menu.price) %>
-                        </td>
-                        <td>
-                            <%= orders[i].quantity %>
-                        </td>
-                        <td>
-                            <a href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Edit</a> | <a href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Delete</a>
-                        </td>
-                    </tr>
-                    <% } %>
-                <tr>
-                    <td>
-                        
-                    </td>
-                    <td>
-                        
-                    </td>
-                    <td>
-                        <%= numberFormat(priceTotal) %>
-                    </td>
-                    <td>
-                        
-                    </td>
-                </tr>
-            </table>
-            <br>
-            <br>
-        <form action="/order/<%= orders[0].Customer.id %>" method="POST">
-            <button id="abc" type="submit">Checkout</button>
-        </form>
-    </div>
+	<main class="page">
+		<section class="shopping-cart dark">
+			<div class="container">
+				<div class="block-heading">
+					<h2>Hello , <%= orders[0].Customer.username %> !</h2>
+					<p>one step ahead to get your meals !.</p>
+				</div>
+				<div class="content">
+					<div class="row">
+						<div class="col-md-12 col-lg-8">
+							<div class="items">
+								<% for(let i=0; i<orders.length; i++) { %>
+								<div class="product">
+									<div class="row">
+										<div class="col-md-3">
+											<img class="img-fluid mx-auto d-block image"
+												src="<%= orders[i].Menu.urlImage %>" style="width: 100%;">
+										</div>
+										<div class="col-md-8">
+											<div class="info">
+												<div class="row">
+													<div class="col-md-5 product-name">
+														<div class="product-name">
+															<a href="#"><%= orders[i].Menu.name %></a>
+															<div class="product-info">
+																<div> <span class="value"><a
+																			href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Edit</a>
+																		| <a
+																			href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Delete</a></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 quantity">
+														<label for="quantity">Quantity:</label>
+														<%= orders[i].quantity %>
+													</div>
+													<div class="col-md-3 price">
+														<span> <%= numberFormat(orders[i].Menu.price) %></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-4">
+							<div class="summary">
+								<h3>Summary</h3>
+								<div class="summary-item"><span class="text">Subtotal</span><span
+										class="price"><%= numberFormat(priceTotal) %></span></div>
+								<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<%- include partials/footer.ejs %>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
 </html>

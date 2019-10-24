@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Top Up</title>
+</head>
+<body>
+    <h1>Hello, <%= user.name %></h1>
+    <p>Your Current Balance</p>
+    <b><%= numberFormat(customer.balance) %></b>
+    <form action="/topUp/<%= customer.id %>" method="POST">
+        <label for="balance">
+            Balance : <input type="number" name="balance" min="100000" step="1">
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="Top Up">
+    </form>
+</body>
+</html>

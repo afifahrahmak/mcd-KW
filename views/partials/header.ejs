@@ -43,11 +43,42 @@
                             MORE... </strong></a>
                 </li>
             </ul>
-            <div style="padding: 10px; display: flex; flex-direction: row;">
-                <% if(user)  {%>
-                <a style="color: black; text-decoration: none; decoration:none;"" href="/logout"> logout </a> <a
-                    href="/order/<%= user.id %>" style="margin: 10px;">Cart</a>
-                <% } else  { %>
-                <a style="color: black; text-decoration: none; decoration:none;"" href="/login"> Login </a> <a
-                    style="color: black; text-decoration: none; decoration:none;"" href="/register"> Register </a>
-                    <% } %> </div> </div> </nav> </header>
+
+
+            <div class=" " id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto">
+                    <% if(user)  {%>
+                    <li class="nav-item">
+                        <a class=" nav-link" style="color: black; text-decoration: none; decoration:none;"
+                            href="/topUp/<%= user.id %>">
+                            <strong> PACKAGE </strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link" style="color: black; text-decoration: none; decoration:none;"
+                            href="/logout">
+                            <strong> LOGOUT </strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link" style="color: black; text-decoration: none; decoration:none;"
+                            href="/order/<%= user.id %>">
+                            <strong> CART </strong></a>
+                    </li>
+                    <% } else  { %>
+                    <li class="nav-item">
+                        <a class=" nav-link" style="color: black; text-decoration: none; decoration:none;"
+                            href="/login">
+                            <strong> LOGIN </strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link" style="color: black; text-decoration: none; decoration:none;"
+                            href="/register">
+                            <strong> REGISTER </strong></a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+    </header>

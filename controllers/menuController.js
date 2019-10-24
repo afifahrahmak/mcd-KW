@@ -5,7 +5,7 @@ const numberFormat = require('../helpers/numberFormat')
 class MenuController {
 
   static showMenu(req, res) {
-    const user = req.session.user
+    // const user = req.session.user
     console.log('masuk')
     let limit = 6
     let page = req.query.page || 1
@@ -21,8 +21,7 @@ class MenuController {
       // distinct: true
     })
       .then(menuData => {
-        // console.log(menuData.rows, '===========================')
-
+        let user = req.session.user
         let rows = menuData.rows
         rows.forEach(element => {
           // console.log('============', element.dataValues)
@@ -33,10 +32,7 @@ class MenuController {
         let test = Math.round(menuData.count / limit)
         let pageStart = Number(page)
         let lastPage = limit + pageStart
-        res.locals.user = user
-        // res.session.user = user
-        res.render('menu', { rows, pageStart, lastPage, test, type, numberFormat })
-
+        res.render('menu', { rows, pageStart, lastPage, test, type, numberFormat, user })
         // res.render('',{menus,pageStart,lastPage,test})
       })
       .catch(err => {

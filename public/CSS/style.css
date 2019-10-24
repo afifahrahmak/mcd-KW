@@ -14,10 +14,6 @@
   font-family: "Questrial";
   /* border: 1px solid red; */
 }
-
-/* HEADER */
-
-/* INDEX OR HOME */
 body {
   overflow: scroll;
 }
@@ -257,7 +253,6 @@ font-weight: bolder;}
   align-items: center;
   text-align: center;
   width: 100%;
-  /* height: 100%; */
 }
 
 
