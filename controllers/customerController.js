@@ -7,7 +7,7 @@ const numberFormat = require('../helpers/numberFormat')
 
 class CustomerController {
 
-    static registerForm(req,res){
+    static registerForm(req, res) {
         let city = [
             "Jakarta Selatan"
         ]
@@ -23,68 +23,64 @@ class CustomerController {
             "Setiabudi",
             "Tebet"
         ]
-        res.render('register',{city,kecamatan, err: null})
+        res.render('register', { city, kecamatan, err: null })
     }
 
     static register(req, res) {
         let address = `${req.body.city},${req.body.kecamatan},${req.body.address}`
-        Customer.findOrCreate({where : {
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-            address: address
-        }})
+        Customer.findOrCreate({
+            where: {
+                username: req.body.username,
+                email: req.body.email,
+                password: req.body.password,
+                address: address
+            }
+        })
             .then(value => {
                 if (value[1]) {
                     res.redirect('/')
                 } else {
                     res.render('register', { err: err.message.split(':')[1] })
                 }
-                req.session.user = {
-                    id : value.id,
-                    name : req.body.username,
-                    email : req.body.email,
-                    password : req.body.password,
-                    address : req.body.address
-                }
             })
             .catch(err => {
                 res.send(err)
+                //
                 // res.status(500).send('sorry server is under alien attack')
             })
     }
 
-    static loginForm(req,res){
-        res.render('login', {err: null})
+    static loginForm(req, res) {
+        res.render('login', { err: null })
     }
-    
+
     static login(req, res) {
         Customer.findOne({
             where: {
                 username: req.body.username
             }
         })
-        .then(userFound => {
-            bcrypt.compare(req.body.password,userFound.password,function(err,success){
-                if(err){
-                    throw err
-                }else{
-                    if(success){
-                        res.redirect('/')
-                    }else{
-                        res.render('login', { err: 'Wrong username/password'})
+            .then(userFound => {
+                bcrypt.compare(req.body.password, userFound.password, function (err, success) {
+                    if (err) {
+                        throw err
+                    } else {
+                        if (success) {
+                            res.redirect('/')
+                        } else {
+                            res.render('login', { err: 'Wrong username/password' })
                         }
+                    }
+                })
+                req.session.user = {
+                    id: userFound.id,
+                    name: req.body.username
                 }
             })
-            req.session.user = {
-                id : userFound.id,
-                name : req.body.username
-            }
-        })
-        .catch(err => {
-            res.status(500).send('sorry server is under alien attack')
-        })
-        
+            .catch(err => {
+                res.status(500).send('sorry server is under alien attack')
+            })
+
     }
 
     static logout(req, res) {
@@ -97,30 +93,30 @@ class CustomerController {
         let user = req.session.user
         console.log(user)
         Customer.findByPk(req.params.id)
-            .then(customer =>{
-                res.render('topup',{user,customer,numberFormat})
+            .then(customer => {
+                res.render('topup', { user, customer, numberFormat })
             })
-            .catch(err =>{
+            .catch(err => {
                 res.send(err)
             })
     }
 
-    static updateBalance(req,res){
+    static updateBalance(req, res) {
         Customer.findByPk(req.params.id)
-            .then(customer =>{
+            .then(customer => {
                 let balance = customer.balance + Number(req.body.balance)
                 return Customer.update({
-                    balance : balance
-                },{
-                    where : {
-                        id : customer.id
+                    balance: balance
+                }, {
+                    where: {
+                        id: customer.id
                     }
                 })
             })
-            .then(()=>{
+            .then(() => {
                 res.redirect('/')
             })
-            .catch(err =>{
+            .catch(err => {
                 res.send(err)
             })
     }

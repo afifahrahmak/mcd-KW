@@ -1,31 +1,38 @@
-const { Menu,Order } = require('../models');
+const { Menu, Order } = require('../models');
 const numberFormat = require('../helpers/numberFormat')
+
 
 class MenuController {
 
   static showMenu(req, res) {
+    // const user = req.session.user
+    console.log('masuk')
     let limit = 6
     let page = req.query.page || 1
     let offset = (page - 1) * limit
     let type = req.params.type
     Menu.findAndCountAll({
       where: {
-        type: type
+        type: req.params.type
       },
       order: [["id", "ASC"]],
       offset: offset,
       limit: limit
-      // distinct : true
+      // distinct: true
     })
       .then(menuData => {
         let user = req.session.user
         let rows = menuData.rows
+        rows.forEach(element => {
+          // console.log('============', element.dataValues)
+        });
         // res.send(menuData)
         // let menus = menuData.rows
+
         let test = Math.round(menuData.count / limit)
         let pageStart = Number(page)
         let lastPage = limit + pageStart
-        res.render('menu1', { rows, pageStart, lastPage, test, type, numberFormat, user })
+        res.render('menu', { rows, pageStart, lastPage, test, type, numberFormat, user })
         // res.render('',{menus,pageStart,lastPage,test})
       })
       .catch(err => {
@@ -62,7 +69,7 @@ class MenuController {
           totalPrice: totalPrice
         })
       })
-      .then(order =>{
+      .then(order => {
         res.redirect(`/menu/${req.params.type}`)
       })
       .catch(err => {
