@@ -3,7 +3,7 @@ const MenuController = require('../controllers/menuController');
 
 
 //HOME
-routes.get('/', MenuController.allMenu)
+// routes.get('/', MenuController.allMenu)
 
 
 

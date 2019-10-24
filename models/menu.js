@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     urlImage: DataTypes.STRING
   }, { sequelize });
   Menu.associate = function (models) {
-    Menu.belongsToMany(models.Customer, { trough: models.Order })
+    Menu.belongsToMany(models.Customer, { through: models.Order })
   };
   return Menu;
 };

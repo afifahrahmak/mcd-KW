@@ -22,11 +22,11 @@ module.exports = (sequelize, DataTypes) => {
           orders.map(order => {
 
           })
-          let receipt = {
-            CustomerName: username,
-            orders: [],
-            totalPayment: 
-          }
+          // let receipt = {
+          //   CustomerName: username,
+          //   orders: [],
+          //   totalPayment: 
+          // }
         })
     }
 

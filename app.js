@@ -3,18 +3,18 @@ const app = express()
 const customerRouter = require('./routers/customerRouter');
 const menuRouter = require('./routers/menuRouter');
 const orderRouter = require('./routers/orderRouter');
-const session = require('express-session');
+// const session = require('express-session');
 const sgMail = require('@sendgrid/mail');
 const port = process.env.PORT || 3000;
 
 
-app.set('trust proxy', 1);
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}));
+// app.set('trust proxy', 1);
+// app.use(session({
+//     secret: 'keyboard cat',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false }
+// }));
 
 app.set("view engine", "ejs")
 app.use(express.urlencoded({ extended: true }))

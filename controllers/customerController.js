@@ -1,6 +1,6 @@
 const Customer = require('../models').Customer
 const Order = require('../models').Order
-const hashPassword = require('../helpers/hashPassword')
+// const hashPassword = require('../helpers/hashPassword')
 
 
 class CustomerController {
@@ -51,6 +51,10 @@ class CustomerController {
         req.session.destroy(() => {
             res.redirect('/')
         })
+    }
+
+    static topup(req, res) {
+        res.render('customers/')
     }
 
 

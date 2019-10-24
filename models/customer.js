@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Customer.associate = function (models) {
-    Customer.belongsToMany(models.Menu, { trough: models.Order })
+    Customer.belongsToMany(models.Menu, { through: models.Order })
   };
 
   return Customer;
