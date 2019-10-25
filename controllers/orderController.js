@@ -45,7 +45,7 @@ class OrderController {
         let balance = orders[0].Customer.balance
         if(balance >= priceTotal){
           let newBalance = balance - priceTotal
-          Mailer(priceTotal,'imanuelnjodi@gmail.com',orders[0].Customer.name)
+          Mailer(priceTotal,orders[0].Customer.email,orders[0].Customer.username)
           return Customer.update({
             balance : newBalance
           },{
