@@ -20,6 +20,14 @@
 			flex-direction: column;
 		}
 
+		a {
+			color: rgba(236, 146, 0, 0.876);
+		}
+
+		button {
+			color: rgba(236, 146, 0, 0.876);
+		}
+
 		footer p {
 			font-family: 'Covered By Your Grace', cursive;
 			font-size: 15px
@@ -78,7 +86,8 @@
 </head>
 
 <body>
-	<main class="page">
+	<%= JSON.stringify(orders) %>
+	<main class="page container">
 		<section class="shopping-cart dark">
 			<div class="container">
 				<div class="block-heading">
@@ -94,19 +103,19 @@
 									<div class="row">
 										<div class="col-md-3">
 											<img class="img-fluid mx-auto d-block image"
-												src="<%= orders[i].Menu.urlImage %>" style="width: 100%;">
+												src="<%= orders[i].Menu.urlImage %>">
 										</div>
 										<div class="col-md-8">
 											<div class="info">
 												<div class="row">
 													<div class="col-md-5 product-name">
-														<div class="product-name">
-															<a href="#"><%= orders[i].Menu.name %></a>
+														<div class="product-name" style="font-size: 30px;"><strong>
+																<a href="#"><%= orders[i].Menu.name %></a></strong>
 															<div class="product-info">
 																<div> <span class="value"><a
-																			href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Edit</a>
+																			href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">edit</a>
 																		| <a
-																			href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Delete</a></span>
+																			href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">delete</a></span>
 																</div>
 															</div>
 														</div>
@@ -131,7 +140,9 @@
 								<h3>Summary</h3>
 								<div class="summary-item"><span class="text">Subtotal</span><span
 										class="price"><%= numberFormat(priceTotal) %></span></div>
-								<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+								<form action="/order/<%= orders[0].Customer.id %>" method="POST">
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
+								</form>
 							</div>
 						</div>
 					</div>

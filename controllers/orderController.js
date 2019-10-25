@@ -7,90 +7,90 @@ class OrderController {
   static allMenuPage(req, res) {
     let priceTotal = 0
     Order.findAll({
-      where : {
-        CustomerId : req.params.id
+      where: {
+        CustomerId: req.params.id
       },
-      include : [Menu,Customer]
+      include: [Menu, Customer]
     })
-      .then(orders =>{
-        if(orders.length){
-          orders.forEach(order =>{
+      .then(orders => {
+        if (orders.length) {
+          orders.forEach(order => {
             priceTotal += order.totalPrice
           })
-          res.render('checkout',{orders,priceTotal,numberFormat})
-        }else{
+          res.render('checkout', { orders, priceTotal, numberFormat })
+        } else {
           res.redirect('/')
         }
       })
-      .catch(err =>{
+      .catch(err => {
         res.send(err)
       })
   }
 
-  static checkout(req,res){
+  static checkout(req, res) {
     let priceTotal = 0
     let id = req.params.id
     Order.findAll({
-      where : {
-        CustomerId : id
+      where: {
+        CustomerId: id
       },
-      include : [Menu,Customer]
+      include: [Menu, Customer]
     })
-      .then(orders =>{
-        orders.forEach(order =>{
+      .then(orders => {
+        orders.forEach(order => {
           priceTotal += order.totalPrice
         })
         Mailer(priceTotal)
         return Order.destroy({
-          where : {
-            CustomerId : id
+          where: {
+            CustomerId: id
           }
         })
       })
-      .then(data =>{
-        res.redirect('/')
+      .then(data => {
+        res.redirect('/aelah')
       })
-      .catch(err =>{
+      .catch(err => {
         res.send(err)
       })
   }
 
-  static editForm(req,res){
+  static editForm(req, res) {
     Order.findByPk(req.params.Id)
-      .then(order =>{
-        res.render('editForm',{order})
+      .then(order => {
+        res.render('editForm', { order })
       })
-      .catch(err =>{
+      .catch(err => {
         res.send(err)
       })
   }
 
-  static editOrder(req,res){
+  static editOrder(req, res) {
     Order.update({
-      quantity : req.body.quantity
-    },{
-      where : {
-        id : req.params.Id
+      quantity: req.body.quantity
+    }, {
+      where: {
+        id: req.params.Id
       }
     })
-      .then(()=>{
+      .then(() => {
         res.redirect(`/order/${req.params.custId}`)
       })
-      .catch(err =>{
+      .catch(err => {
         res.send(err)
       })
   }
 
-  static deleteOrder(req,res){
+  static deleteOrder(req, res) {
     Order.destroy({
-      where : {
-        id : req.params.id
+      where: {
+        id: req.params.id
       }
     })
-      .then(()=>{
+      .then(() => {
         res.redirect(`/order/${req.params.custId}`)
       })
-      .catch(err =>{
+      .catch(err => {
         res.send(err)
       })
   }

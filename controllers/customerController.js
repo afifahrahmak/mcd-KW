@@ -74,7 +74,10 @@ class CustomerController {
                 })
                 req.session.user = {
                     id: userFound.id,
-                    name: req.body.username
+                    name: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password,
+                    address: address
                 }
             })
             .catch(err => {
