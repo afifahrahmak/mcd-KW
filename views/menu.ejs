@@ -106,10 +106,10 @@
   <div class="container">
     <div class="row">
       <!-- /.col-lg-3 -->
-      <div class="col-lg-12">
+      <div class="col-lg-9">
         <div class="row">
 
-          <div class="d-flex flex-wrap carddd" style="width: 100%">
+          <div class="d-flex flex-wrap carddd" style="width: 100%; margin-left: 40%;">
             <% rows.forEach(row => { %>
 
             <div class="card" style="width: 18rem; margin: 1vh !important;">
@@ -153,20 +153,28 @@
             </div>
             <% }) %>
           </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <% if(pageStart < test && pageStart > 1) { %>
+              <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= pageStart-1 %>">Previous</a>
+              </li>
+              <% } %>
+              <% if(pageStart < test) { %>
+              <% for(let i=pageStart; i<test+1; i++) { %>
+              <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= i %>"><%= i %></a></li>
+              <% } %>
+              <% }else if(pageStart === test) { %>
+              <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= pageStart-1 %>">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link"
+                  href="/menu/<%= type %>?page=<%= pageStart %>"><%= pageStart %></a></li>
+              <% } %>
+              <% if(pageStart < test) { %>
+              <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%=pageStart + 1 %>">Next</a></li>
+              <% } %>
+            </ul>
+          </nav>
 
-          <% if(pageStart < test && pageStart > 1) { %>
-          <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
-          </a> <% } %> <% if(pageStart < test) { %> <% for(let i=pageStart; i<test+1; i++) { %> <a
-            href="/menu/<%= type %>?page=<%= i %>"><%= i %>
-          </a>
-          <% } %>
-          <% }else if(pageStart === test) { %>
-          <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
-          </a> <a href="/menu/<%= type %>?page=<%= pageStart %>"><%= pageStart %>
-          </a>
-          <% } %>
-          <% if(pageStart < test) { %>
-          <a href="/menu/<%= type %>?page=<%=pageStart + 1 %>"></a> <% } %>
         </div>
       </div>
     </div>

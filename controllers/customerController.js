@@ -8,6 +8,7 @@ const numberFormat = require('../helpers/numberFormat')
 class CustomerController {
 
     static registerForm(req, res) {
+        let err = req.query.err || undefined
         let city = [
             "Jakarta Selatan"
         ]
@@ -23,35 +24,39 @@ class CustomerController {
             "Setiabudi",
             "Tebet"
         ]
-        res.render('register', { city, kecamatan, err: null })
+        res.render('register', { city, kecamatan, err })
     }
 
     static register(req, res) {
         let address = `${req.body.city},${req.body.kecamatan},${req.body.address}`
-        Customer.findOrCreate({
-            where: {
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password,
-                address: address
-            }
+        Customer.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            address: address
         })
             .then(value => {
-                if (value[1]) {
-                    res.redirect('/')
-                } else {
-                    res.render('register', { err: err.message.split(':')[1] })
+                req.session.user = {
+                    name: req.body.username,
+                    email: req.body.email,
+                    password: req.body.password
                 }
+                res.redirect('/')
+                // if (value[1]) {
+                //     res.redirect('/')
+                // } else {
+                //     res.render('register', { err: err.message.split(':')[1] })
+                // }
             })
             .catch(err => {
-                res.send(err)
-                //
+                res.redirect('/register?err=Email%20already%20exists')
                 // res.status(500).send('sorry server is under alien attack')
             })
     }
 
     static loginForm(req, res) {
-        res.render('login', { err: null })
+        let err = req.query.err || undefined
+        res.render('login', { err })
     }
 
     static login(req, res) {
@@ -61,23 +66,15 @@ class CustomerController {
             }
         })
             .then(userFound => {
-                bcrypt.compare(req.body.password, userFound.password, function (err, success) {
-                    if (err) {
-                        throw err
-                    } else {
-                        if (success) {
-                            res.redirect('/')
-                        } else {
-                            res.render('login', { err: 'Wrong username/password' })
-                        }
+                let checkPass = bcrypt.compareSync(req.body.password, userFound.password)
+                if (checkPass) {
+                    req.session.user = {
+                        id: userFound.id,
+                        name: req.body.username
                     }
-                })
-                req.session.user = {
-                    id: userFound.id,
-                    name: req.body.username,
-                    email: req.body.email,
-                    password: req.body.password,
-                    address: address
+                    res.redirect('/')
+                } else {
+                    res.redirect('/login?err=Wrong%20username%20or%20password')
                 }
             })
             .catch(err => {
@@ -94,10 +91,10 @@ class CustomerController {
 
     static topup(req, res) {
         let user = req.session.user
-        console.log(user)
+        let err = req.query.err || undefined
         Customer.findByPk(req.params.id)
             .then(customer => {
-                res.render('topup', { user, customer, numberFormat })
+                res.render('topup', { user, customer, numberFormat, err: err })
             })
             .catch(err => {
                 res.send(err)

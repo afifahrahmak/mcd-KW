@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="home">
+        <a href="/menu/<%= type %>">
+            <p>Back to menu</p>
+        </a>
+    </div>
+    <img src="<%= menu.urlImage %>" alt="">
+    <h1><%= menu.name %></h1>
+    <hr>
+    <form action="/order/<%= type %>/<%= id %>">
+        <label for="quantity">
+            Quantity : <input type="number" name="quantity" min="1" step="1" required>
+        </label>
+        <br>
+        <br>
+        <input type="submit" value="Order">
+    </form>
+</body>
+</html>

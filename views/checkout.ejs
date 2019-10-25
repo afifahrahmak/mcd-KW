@@ -82,12 +82,37 @@
 			margin: 20px !important;
 
 		}
+
+		.alert {
+			padding: 20px;
+			background-color: #f44336;
+			color: white;
+		}
+
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closebtn:hover {
+			color: black;
+		}
 	</style>
 </head>
 
 <body>
-	<%= JSON.stringify(orders) %>
-	<main class="page container">
+	<% if(err) { %>
+	<div class="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+		<strong>Error! </strong><%= err %>
+	</div>
+	<main class="page">
 		<section class="shopping-cart dark">
 			<div class="container">
 				<div class="block-heading">
@@ -103,19 +128,19 @@
 									<div class="row">
 										<div class="col-md-3">
 											<img class="img-fluid mx-auto d-block image"
-												src="<%= orders[i].Menu.urlImage %>">
+												src="<%= orders[i].Menu.urlImage %>" style="width: 100%;">
 										</div>
 										<div class="col-md-8">
 											<div class="info">
 												<div class="row">
 													<div class="col-md-5 product-name">
-														<div class="product-name" style="font-size: 30px;"><strong>
-																<a href="#"><%= orders[i].Menu.name %></a></strong>
+														<div class="product-name">
+															<a href="#"><%= orders[i].Menu.name %></a>
 															<div class="product-info">
 																<div> <span class="value"><a
-																			href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">edit</a>
+																			href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Edit</a>
 																		| <a
-																			href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">delete</a></span>
+																			href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Delete</a></span>
 																</div>
 															</div>
 														</div>
@@ -140,10 +165,77 @@
 								<h3>Summary</h3>
 								<div class="summary-item"><span class="text">Subtotal</span><span
 										class="price"><%= numberFormat(priceTotal) %></span></div>
-								<form action="/order/<%= orders[0].Customer.id %>" method="POST">
+							</div>
+							<form action="/order/<%= id %>" method="POST">
+								<button type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<% }else{ %>
+	<main class="page">
+		<section class="shopping-cart dark">
+			<div class="container">
+				<div class="block-heading">
+					<h2>Hello , <%= orders[0].Customer.username %> !</h2>
+					<p>one step ahead to get your meals !.</p>
+				</div>
+				<div class="content">
+					<div class="row">
+						<div class="col-md-12 col-lg-8">
+							<div class="items">
+								<% for(let i=0; i<orders.length; i++) { %>
+								<div class="product">
+									<div class="row">
+										<div class="col-md-3">
+											<img class="img-fluid mx-auto d-block image"
+												src="<%= orders[i].Menu.urlImage %>" style="width: 100%;">
+										</div>
+										<div class="col-md-8">
+											<div class="info">
+												<div class="row">
+													<div class="col-md-5 product-name">
+														<div class="product-name">
+															<a href="#"><%= orders[i].Menu.name %></a>
+															<div class="product-info">
+																<div> <span class="value"><a
+																			href="/order/edit/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Edit</a>
+																		| <a
+																			href="/order/delete/<%= orders[i].id %>/<%= orders[i].CustomerId %>">Delete</a></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 quantity">
+														<label for="quantity">Quantity:</label>
+														<%= orders[i].quantity %>
+													</div>
+													<div class="col-md-3 price">
+														<span> <%= numberFormat(orders[i].Menu.price) %></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<% } %>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-4">
+							<div class="summary">
+								<h3>Summary</h3>
+								<div class="summary-item"><span class="text">Subtotal</span><span
+										class="price"><%= numberFormat(priceTotal) %></span></div>
+								<form action="/order/<%= id %>" method="POST">
 									<button type="submit" class="btn btn-primary btn-lg btn-block">Checkout</button>
 								</form>
+
+
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -151,6 +243,7 @@
 		</section>
 	</main>
 	<%- include partials/footer.ejs %>
+	<% } %>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

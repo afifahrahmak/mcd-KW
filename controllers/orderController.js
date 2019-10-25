@@ -6,9 +6,11 @@ class OrderController {
 
   static allMenuPage(req, res) {
     let priceTotal = 0
+    let id = req.params.id
+    let err = req.query.err || undefined
     Order.findAll({
       where: {
-        CustomerId: req.params.id
+        CustomerId: id
       },
       include: [Menu, Customer]
     })
@@ -17,9 +19,9 @@ class OrderController {
           orders.forEach(order => {
             priceTotal += order.totalPrice
           })
-          res.render('checkout', { orders, priceTotal, numberFormat })
+          res.render('checkout', { orders, numberFormat, id, priceTotal, err })
         } else {
-          res.redirect('/')
+          res.redirect('/?err=Keranjang%20Kosong')
         }
       })
       .catch(err => {
@@ -29,26 +31,42 @@ class OrderController {
 
   static checkout(req, res) {
     let priceTotal = 0
-    let id = req.params.id
+    let Id = req.params.id
     Order.findAll({
       where: {
-        CustomerId: id
+        CustomerId: Id
       },
-      include: [Menu, Customer]
+      include: [Customer]
     })
       .then(orders => {
         orders.forEach(order => {
           priceTotal += order.totalPrice
         })
-        Mailer(priceTotal)
+        let balance = orders[0].Customer.balance
+        if (balance >= priceTotal) {
+          let newBalance = balance - priceTotal
+          Mailer(priceTotal, orders[0].Customer.email, orders[0].Customer.username)
+          return Customer.update({
+            balance: newBalance
+          }, {
+            where: {
+              id: Id
+            }
+          })
+        }
+        res.redirect(`/order/${Id}?err=Balance%20tidak%20mencukupi`)
+      })
+      .then(() => {
         return Order.destroy({
           where: {
-            CustomerId: id
+            CustomerId: Id
           }
         })
       })
       .then(data => {
-        res.redirect('/aelah')
+        let user = req.session.user
+        res.locals.numberFormat = numberFormat
+        res.render('test', { user, value: priceTotal })
       })
       .catch(err => {
         res.send(err)
@@ -67,11 +85,12 @@ class OrderController {
 
   static editOrder(req, res) {
     Order.update({
-      quantity: req.body.quantity
+      quantity: Number(req.body.quantity)
     }, {
       where: {
         id: req.params.Id
-      }
+      },
+      individualHooks: true
     })
       .then(() => {
         res.redirect(`/order/${req.params.custId}`)

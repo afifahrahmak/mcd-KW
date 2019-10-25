@@ -2,41 +2,122 @@
     {
         "name": "Big Bro",
         "price": 25000,
-        "type": "food",
-        "description": "burger",
-        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "type": "burger",
+        "description": "burger paling enak sedunia pokoknya",
+        "urlImage": "/image/100120.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "Big Mac KW",
+        "price": 25000,
+        "type": "burger",
+        "description": "burger paling enak sedunia pokoknya",
+        "urlImage": "/image/burger1.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "Big Sis",
+        "price": 25000,
+        "type": "burger",
+        "description": "saudaranay Big Bro",
+        "urlImage": "/image/burgertes.jpeg",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Ayam Good",
         "price": 14000,
-        "type": "food",
+        "type": "chicken",
         "description": "mood",
         "urlImage": "https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
-        "name": "Pasta",
+        "name": "Ayam fine",
+        "price": 14000,
+        "type": "chicken",
+        "description": "thank you and you !",
+        "urlImage": "/image/ayam1.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "ceritanya ayam",
+        "price": 14000,
+        "type": "chicken",
+        "description": "bonus kentang, gratis kalau ini !",
+        "urlImage": "/image/120003.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "la fonte",
         "price": 20000,
-        "type": "food",
+        "type": "pasta",
         "description": "bukan untuk gigi!",
         "urlImage": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
-        "name": "SunRice",
-        "price": 7000,
-        "type": "food",
-        "description": "nasi jagung",
-        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "name": "la la la",
+        "price": 20000,
+        "type": "pasta",
+        "description": "enak!",
+        "urlImage": "/image/6.jpg",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
-        "name": "Salad",
+        "name": "la la la aku sayang doraemon",
+        "price": 20000,
+        "type": "pasta",
+        "description": "enak banget!",
+        "urlImage": "/image/spagethi1.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "lu lu lu",
+        "price": 20000,
+        "type": "pasta",
+        "description": "enak banget banget banget!",
+        "urlImage": "/image/paste2.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "SunRice 3",
+        "price": 7000,
+        "type": "rice",
+        "description": "nasi jagung",
+        "urlImage": "/image/nasi1.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "SunRice 1",
+        "price": 7000,
+        "type": "rice",
+        "description": "bukan nasi jagung",
+        "urlImage": "/image/nasi2.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "SunRice 2",
+        "price": 7000,
+        "type": "food",
+        "description": "nasi jagung juga mirip, kembarannya lah!",
+        "urlImage": "/image/nasi3.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "Salad 1",
         "price": 30000,
         "type": "food",
         "description": "tidak pahit",
@@ -45,20 +126,74 @@
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
-        "name": "Scrambled Eggs",
-        "price": 10000,
+        "name": "Salad 2",
+        "price": 30000,
         "type": "food",
-        "description": "rasa sapi",
-        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "description": "kembarannya salad 1",
+        "urlImage": "/image/salad1.jpeg",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
-        "name": "smoothies",
+        "name": "Nugget",
+        "price": 10000,
+        "type": "food",
+        "description": "rasa sapi",
+        "urlImage": "/image/nugget.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "COCA-COLA",
         "price": 3000,
         "type": "food",
-        "description": "menu wajib cuy",
-        "urlImage": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        "description": "coca coals",
+        "urlImage": "/image/cocacoal.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "FANTA",
+        "price": 3000,
+        "type": "food",
+        "description": "temennya coca-cola",
+        "urlImage": "/image/fanta.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "ICE CREAM",
+        "price": 3000,
+        "type": "food",
+        "description": " bukan mc flurry",
+        "urlImage": "/image/icecream1.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "milo",
+        "price": 3000,
+        "type": "food",
+        "description": "musuhnya coca coals",
+        "urlImage": "/image/milo.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "PEPSI",
+        "price": 3000,
+        "type": "food",
+        "description": "BROnya coca-cola",
+        "urlImage": "/image/pepsi.jpeg",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "SPRITE",
+        "price": 3000,
+        "type": "food",
+        "description": "nyatanya nyegerin! tapi boong!",
+        "urlImage": "/image/sprite.png",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
@@ -66,8 +201,8 @@
         "name": "salad 2",
         "price": 3000,
         "type": "food",
-        "description": "menu wajib cuy",
-        "urlImage": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+        "description": "kembarannya salad 1 juga",
+        "urlImage": "/image/salad2.jpeg",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
@@ -76,16 +211,43 @@
         "price": 3000,
         "type": "food",
         "description": "menu wajib cuy",
-        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "urlImage": "/image/1.jpg",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     },
     {
         "name": "Paket A",
         "price": 22000,
-        "type": "food",
-        "description": "Ayam+Nasi+Air Mineral",
-        "urlImage": "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        "type": "paket",
+        "description": "Ayam+Nasi+Air Mineral banyak",
+        "urlImage": "/image/paket1.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "Paket A",
+        "price": 22000,
+        "type": "paket",
+        "description": "Ayam+Nasi+Air Mineral banyak banget",
+        "urlImage": "/image/paket2.png",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "Paket A",
+        "price": 22000,
+        "type": "paket",
+        "description": "cuma burger kentang tapi enak banget coy .cobain!",
+        "urlImage": "/image/pakethemat1.jpeg",
+        "createdAt": "2012-04-23T18:25:43.511Z",
+        "updatedAt": "2012-04-23T18:25:43.511Z"
+    },
+    {
+        "name": "Paket A",
+        "price": 22000,
+        "type": "paket",
+        "description": "cuma burger kentang tapi enak banget coy .cobain aja plis!",
+        "urlImage": "/image/pakethemat2.jpeg",
         "createdAt": "2012-04-23T18:25:43.511Z",
         "updatedAt": "2012-04-23T18:25:43.511Z"
     }
