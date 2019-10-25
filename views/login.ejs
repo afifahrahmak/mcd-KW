@@ -72,6 +72,26 @@
         width: 100%;
       }
     }
+    .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .closebtn:hover {
+            color: black;
+        }
   </style>
 </head>
 
@@ -79,31 +99,57 @@
 
   <h2>Login Form</h2>
   <% if(err) { %>
-  <%= err  %>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Error! </strong><%= err %>
+    </div>
+    <form action="/login" method="post">
+  
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+  
+        <button type="submit">Login</button>
+          <button type="submit">
+            <a href="/register">
+              Register
+            </a>
+          </button>
+  
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1">
+        <a href="/" class="cancelbtn">Cancel</a>
+      </div>
+    </form>
+  <% }else{ %>
+    <form action="/login" method="post">
+  
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+  
+        <button type="submit">Login</button>
+          <button type="submit">
+            <a href="/register">
+              Register
+            </a>
+          </button>
+  
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1">
+        <a href="/" class="cancelbtn">Cancel</a>
+      </div>
+    </form>
   <% } %>
 
-  <form action="/login" method="post">
-
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
-
-      <button type="submit">Login</button>
-        <button type="submit">
-          <a href="/register">
-            Register
-          </a>
-        </button>
-
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <a href="/" class="cancelbtn">Cancel</a>
-    </div>
-  </form>
 
 </body>
 

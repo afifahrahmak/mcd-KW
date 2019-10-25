@@ -55,7 +55,8 @@ class CustomerController {
     }
 
     static loginForm(req, res) {
-        res.render('login', { err: null })
+        let err = req.query.err || undefined
+        res.render('login', { err })
     }
 
     static login(req, res) {
@@ -65,20 +66,15 @@ class CustomerController {
             }
         })
             .then(userFound => {
-                bcrypt.compare(req.body.password, userFound.password, function (err, success) {
-                    if (err) {
-                        throw err
-                    } else {
-                        if (success) {
-                            res.redirect('/')
-                        } else {
-                            res.render('login', { err: 'Wrong username/password' })
-                        }
+                let checkPass = bcrypt.compareSync(req.body.password, userFound.password)
+                if(checkPass){
+                    req.session.user = {
+                        id: userFound.id,
+                        name: req.body.username
                     }
-                })
-                req.session.user = {
-                    id: userFound.id,
-                    name: req.body.username
+                    res.redirect('/')
+                }else{
+                    res.redirect('/login?err=Wrong%20username%20or%20password')
                 }
             })
             .catch(err => {
