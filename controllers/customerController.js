@@ -8,6 +8,7 @@ const numberFormat = require('../helpers/numberFormat')
 class CustomerController {
 
     static registerForm(req, res) {
+        let err = req.query.err || undefined
         let city = [
             "Jakarta Selatan"
         ]
@@ -23,29 +24,32 @@ class CustomerController {
             "Setiabudi",
             "Tebet"
         ]
-        res.render('register', { city, kecamatan, err: null })
+        res.render('register', { city, kecamatan, err })
     }
 
     static register(req, res) {
         let address = `${req.body.city},${req.body.kecamatan},${req.body.address}`
-        Customer.findOrCreate({
-            where: {
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password,
-                address: address
-            }
+        Customer.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            address: address
         })
             .then(value => {
-                if (value[1]) {
-                    res.redirect('/')
-                } else {
-                    res.render('register', { err: err.message.split(':')[1] })
+                req.session.user = {
+                    name : req.body.username,
+                    email : req.body.email,
+                    password : req.body.password
                 }
+                res.redirect('/')
+                // if (value[1]) {
+                //     res.redirect('/')
+                // } else {
+                //     res.render('register', { err: err.message.split(':')[1] })
+                // }
             })
             .catch(err => {
-                res.send(err)
-                //
+                res.redirect('/register?err=Email%20already%20exists')
                 // res.status(500).send('sorry server is under alien attack')
             })
     }
