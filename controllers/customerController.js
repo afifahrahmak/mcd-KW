@@ -91,10 +91,10 @@ class CustomerController {
 
     static topup(req, res) {
         let user = req.session.user
-        console.log(user)
+        let err = req.query.err || undefined
         Customer.findByPk(req.params.id)
             .then(customer => {
-                res.render('topup', { user, customer, numberFormat })
+                res.render('topup', { user, customer, numberFormat,err: err})
             })
             .catch(err => {
                 res.send(err)

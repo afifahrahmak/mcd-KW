@@ -5,17 +5,23 @@ const Mailer = require('../helpers/nodeMailer')
 class OrderController {
 
   static allMenuPage(req, res) {
+    let priceTotal = 0
+    let id = req.params.id
+    let err = req.query.err || undefined
     Order.findAll({
       where : {
-        CustomerId : req.params.id
+        CustomerId : id
       },
       include : [Menu,Customer]
     })
       .then(orders =>{
         if(orders.length){
-          res.render('checkout',{orders,numberFormat})
+          orders.forEach(order =>{
+            priceTotal += order.totalPrice
+          })
+          res.render('checkout',{orders,numberFormat,id,priceTotal,err})
         }else{
-          res.redirect('/')
+          res.redirect('/?err=Keranjang%20Kosong')
         }
       })
       .catch(err =>{
@@ -36,14 +42,28 @@ class OrderController {
         orders.forEach(order =>{
           priceTotal += order.totalPrice
         })
-        Mailer(priceTotal,'imanuelnjodi@gmail.com',orders[0].Customer.name)
+        let balance = orders[0].Customer.balance
+        if(balance >= priceTotal){
+          let newBalance = balance - priceTotal
+          Mailer(priceTotal,'imanuelnjodi@gmail.com',orders[0].Customer.name)
+          return Customer.update({
+            balance : newBalance
+          },{
+            where : {
+              id : Id
+            }
+          })
+        }
+        res.redirect(`/order/${Id}?err=Balance%20tidak%20mencukupi`)
+      })
+      .then(() =>{
         return Order.destroy({
           where : {
             CustomerId : Id
           }
         })
       })
-      .then(data =>{
+      .then(()=>{
         res.redirect('/')
       })
       .catch(err =>{

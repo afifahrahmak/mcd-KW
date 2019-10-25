@@ -3,7 +3,8 @@ const CustomerController = require('../controllers/customerController')
 
 router.get('/', (req, res) => {
     let user = req.session.user
-    res.render('main', { user })
+    let err = req.query.err
+    res.render('main', { user,err })
 })
 
 router.get('/login', CustomerController.loginForm) // kalau ngeklik tombol login, pindah page //kelar

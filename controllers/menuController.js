@@ -1,4 +1,4 @@
-const { Menu, Order } = require('../models');
+const { Menu, Order, Customer } = require('../models');
 const numberFormat = require('../helpers/numberFormat')
 
 
@@ -54,20 +54,29 @@ class MenuController {
     let menuId = req.params.id
     let customerId = req.session.user.id
     let qty = req.body.quantity
+    let menuData = null
+    let customerData = null
     Menu.findOne({
       where: {
         id: menuId
       }
     })
       .then(menu => {
-        console.log(menu)
-        let totalPrice = qty * menu.price
-        return Order.create({
-          CustomerId: customerId,
-          MenuId: menuId,
-          quantity: qty,
-          totalPrice: totalPrice
-        })
+        menuData = menu
+        return Customer.findByPk(customerId)
+      })
+      .then(customer =>{
+        // customerData = customer
+        let totalPrice = qty * menuData.price
+          if(customer.balance >= totalPrice){
+            return Order.create({
+              CustomerId: customerId,
+              MenuId: menuId,
+              quantity: qty,
+              totalPrice: totalPrice
+            })
+        }
+        res.redirect(`/topUp/${customerId}?err=Balance%20tidak%20mencukupi`)
       })
       .then(order => {
         res.redirect(`/menu/${req.params.type}`)

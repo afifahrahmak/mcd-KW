@@ -102,48 +102,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <% for(let i=0; i<rows.length; i++) { %>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-    <div class="d-flex align-content-end flex-wrap">
-        <% for(let i=0; i<rows.length; i++) { %>
-            <div class="card" style="width: 18rem;">
-                <img src="<%= rows[i].urlImage %>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p><%= numberFormat(rows[i].price) %></p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Order
-                    </button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Quantity</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form action="/order/<%= rows[i].type %>/<%= rows[i].id %>" method="POST">
-                                    <div class="modal-body">
-                                        <input type="number" name="quantity" min="1" step="1" required>
-                                        <button type="submit">Order Now</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-=======
->>>>>>> e007d6f66be0b3cd68a6defbb2d2e2d120e49cc0
   <%- include partials/header.ejs %>
   <div class="container">
     <div class="row">
@@ -195,20 +153,25 @@
             </div>
             <% }) %>
           </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <% if(pageStart < test && pageStart > 1) { %>
+                <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= pageStart-1 %>">Previous</a></li>
+               <% } %> 
+              <% if(pageStart < test) { %> 
+                <% for(let i=pageStart; i<test+1; i++) { %> 
+                    <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= i %>"><%= i %></a></li>
+                <% } %>
+              <% }else if(pageStart === test) { %>
+                <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= pageStart-1 %>">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%= pageStart %>"><%= pageStart %></a></li>
+              <% } %>
+              <% if(pageStart < test) { %>
+                <li class="page-item"><a class="page-link" href="/menu/<%= type %>?page=<%=pageStart + 1 %>">Next</a></li>
+              <% } %>
+            </ul>
+          </nav>
 
-          <% if(pageStart < test && pageStart > 1) { %>
-          <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
-          </a> <% } %> <% if(pageStart < test) { %> <% for(let i=pageStart; i<test+1; i++) { %> <a
-            href="/menu/<%= type %>?page=<%= i %>"><%= i %>
-          </a>
-          <% } %>
-          <% }else if(pageStart === test) { %>
-          <a href="/menu/<%= type %>?page=<%= pageStart-1 %>">
-          </a> <a href="/menu/<%= type %>?page=<%= pageStart %>"><%= pageStart %>
-          </a>
-          <% } %>
-          <% if(pageStart < test) { %>
-          <a href="/menu/<%= type %>?page=<%=pageStart + 1 %>"></a> <% } %>
         </div>
       </div>
     </div>
